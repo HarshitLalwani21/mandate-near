@@ -1,5 +1,5 @@
 {
-  "prefix": "mandate-mw7zz0zl",
+  "dao": "mandate-mw7zz0zl.sputnikv2.testnet",
   "accounts": {
     "council": "council-mandate-mw7zz0zl.testnet",
     "alice": "alice-mandate-mw7zz0zl.testnet",
@@ -8,85 +8,90 @@
     "recipient": "recipient-mandate-mw7zz0zl.testnet",
     "registry": "registry-mandate-mw7zz0zl.testnet"
   },
-  "identityPolicy": "team-issued-testnet",
   "transactions": [
     {
-      "stage": "registry-deployed",
-      "hash": "4D32aSQf9NTa6CcsbWJhXc5brt3vaZc47V7PbDMpSA3K"
-    },
-    {
-      "stage": "team-credentials-issued",
-      "hash": "H1egYZ62DwpmwvLsVKAwk4MYPtz5JgWe1V15ngJ2T7NS"
-    },
-    {
-      "stage": "sputnik-dao-created",
-      "hash": "H22Zwg54wZ7se8vfyywESZWik44rwtX5aVADDm7y3qZJ"
-    },
-    {
-      "stage": "budget-filed",
-      "hash": "5nPeQCqkXB4M3zgx6Wt3mfKegSxFCyXprZFR622JbJaX",
+      "stage": "v2-budget-filed",
+      "hash": "CFW1WBFfKjMt1QuHLKdAHU5X27n2y38CAuKsN6RyaZq1",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
-      "stage": "budget-approved",
-      "hash": "GyxKg42t4eb1wQT2fJoRhNfqDTee9YCwAcXtAeHHs63K",
+      "stage": "v2-budget-approved",
+      "hash": "7TGsM2dRda6sR33SDXTkU1f2dYF5nj4sPSepsWEUYUgg",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
-      "stage": "declaration-alice",
-      "hash": "Hy2i8WUz6EVUjAMkZCdCpF39Vok53Xep5EodicKiih1k",
+      "stage": "v2-alice",
+      "hash": "88gE5Tqx3dsaZd7KjcHqfRDTW1SHPi1MWNa8DvrPhcMS",
       "signer": "alice-mandate-mw7zz0zl.testnet"
     },
     {
-      "stage": "declaration-ben",
-      "hash": "DozWqxewEbzc4TZqughtdcWLfmdKH6FXVARj3ZJPkxHa",
+      "stage": "v2-ben",
+      "hash": "E8GwfdCYe4VnGJ3txM7U1hhJ8AkPbkCQPYh6gK9KGWo5",
       "signer": "ben-mandate-mw7zz0zl.testnet"
     },
     {
-      "stage": "declaration-cara",
-      "hash": "44nUG9A7S5hKa2ger8ddL5YiBu58AbNPNh3DSrGN5SZx",
+      "stage": "v2-cara",
+      "hash": "H7XZWvfNgx6bW9wspiWqPBu8WptXpadojPLQEqm45Kgf",
       "signer": "cara-mandate-mw7zz0zl.testnet"
     },
     {
+      "stage": "v2-ineligible",
+      "hash": "9sVZev2FE3JPQTssWMbDL6Evxi3uTMbP9wB2vu3u9KUe",
+      "signer": "recipient-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "v2-outside-roster",
+      "hash": "9Z4nNKsGr2PhwDnk3Ct1cgvMu5uqqu4tfAATXcnnxZcN",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "v2-repeated-declaration",
+      "hash": "4UhMWbaxjkdAzKAFyMyN27vsxYJ2DzHZMenQwQcYBatA",
+      "signer": "alice-mandate-mw7zz0zl.testnet"
+    },
+    {
       "stage": "changed-amount-filed",
-      "hash": "J6kqf4GUGo4nuMp8YedrchqH2UUmUeHBpysJtsdoC4ej",
+      "hash": "7LyystUfP9WiCyrG7GALwGMBKrJF75FGaoLWhXEferMQ",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
       "stage": "changed-amount-rejected",
-      "hash": "B1RCHPzg8ovi4W5UYQ84UWjDDfaEKWi98Ge9bb2yPgca",
+      "hash": "ACXqQebPXM8AoaqtWLT8RpejKHo6ctvaDweBHrhqRVJm",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
       "stage": "translate-payment-filed",
-      "hash": "74dDt7KXNHyKz1qgXL6ZXquiFbShfG3vUdrdqYe9YLoe",
+      "hash": "FC1Ae77sZCwu3pCvL3HzgPK4xGY5vzVnDMgKEij73g6f",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
       "stage": "translate-payment-approved",
-      "hash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+      "hash": "T7v27UzSqtTajjCv5fPHYwH19r6QkTYcKfgnPg8m99u",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
       "stage": "workshop-payment-filed",
-      "hash": "BrtNKSivhry9PadSQvrntRgwzKF68DLpqLpmHPoH85gL",
+      "hash": "EbATPEi3vZSBcLKW59dmjegdALXtsfcLzSsppLwojcwU",
       "signer": "council-mandate-mw7zz0zl.testnet"
     },
     {
       "stage": "workshop-payment-approved",
-      "hash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+      "hash": "9Ra9zB6cuDswcj3i8YEezNQWuLvt2yYTaFsw1mQozdSG",
       "signer": "council-mandate-mw7zz0zl.testnet"
     }
   ],
-  "registrySource": {
-    "repository": "https://github.com/near-ndc/i-am-human",
-    "artifact": "contracts/deployed/registry.wasm",
-    "sha256": "a0adc1f646921511a73e57c9d5d00a4388500d9382bce2bb06a66bc9505a5bb4"
+  "ballots": {
+    "alice": 8,
+    "ben": 9,
+    "cara": 10,
+    "ineligible": 11,
+    "outside-roster": 12,
+    "repeated-declaration": 13
   },
-  "dao": "mandate-mw7zz0zl.sputnikv2.testnet",
+  "identityPolicy": "team-issued-testnet",
   "budget": {
-    "schema": "treasury-budget/v1",
-    "title": "Mandate public community budget demonstration",
+    "schema": "treasury-budget/v2",
+    "title": "Mandate request-specific voting and eligibility demonstration",
     "asset": "NEAR",
     "amount": "0.3",
     "requests": [
@@ -113,54 +118,70 @@
       "members": [
         "alice-mandate-mw7zz0zl.testnet",
         "ben-mandate-mw7zz0zl.testnet",
-        "cara-mandate-mw7zz0zl.testnet"
+        "cara-mandate-mw7zz0zl.testnet",
+        "recipient-mandate-mw7zz0zl.testnet"
       ],
       "quorum": 2,
-      "closesNs": "1794152893362000000",
-      "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+      "closesNs": "1794156536618000000",
+      "identityBlock": "37Rggm7EyE1P1kNhrmqS2p2SmRioFwmbQE7JynJWVwaz",
       "registry": "registry-mandate-mw7zz0zl.testnet",
-      "identityPolicy": "team-issued-testnet"
+      "identityPolicy": "team-issued-testnet",
+      "minSupporters": 2
     }
   },
-  "budgetProposalId": 0,
-  "declarations": {
-    "alice": 1,
-    "ben": 2,
-    "cara": 3
+  "budgetProposalId": 7,
+  "approved": true,
+  "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+  "expected": {
+    "represented": 3,
+    "funded": 2,
+    "exclusions": [
+      {
+        "account": "recipient-mandate-mw7zz0zl.testnet",
+        "reason": "No eligible credential"
+      },
+      {
+        "account": "council-mandate-mw7zz0zl.testnet",
+        "reason": "Outside electorate"
+      },
+      {
+        "account": "alice-mandate-mw7zz0zl.testnet",
+        "reason": "Account already used"
+      }
+    ]
   },
-  "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/0",
-  "identityDisclosure": "All accounts and the registry authority are controlled by the team. The credentials are test fixtures issued on a real NEAR registry deployment; they do not establish independent proof of personhood.",
-  "closesAt": "2026-11-08T15:48:13.362Z",
-  "badProposalId": 4,
+  "identityDisclosure": "All demo accounts, issuer and roster are team controlled. The on-chain exclusions test eligibility and repeated declarations. They establish no independent personhood or outside participation.",
+  "stagedMismatchDisclosure": "The team files the changed-amount proposal and rejects it to demonstrate the review check.",
+  "badProposalId": 14,
   "payments": [
     {
       "requestId": "translate",
-      "proposalId": 5,
-      "transactionHash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+      "proposalId": 15,
+      "transactionHash": "T7v27UzSqtTajjCv5fPHYwH19r6QkTYcKfgnPg8m99u",
       "signer": "council-mandate-mw7zz0zl.testnet",
-      "receipt": "BBXuzmLeyv2znKLULQD89iiXbTt25XYFg8VEYazoT4Jc",
+      "receipt": "9xEdu2ry9jKKTgesbDw56tF6aCMDEn6etGf3kvYLT7Tz",
       "verified": true
     },
     {
       "requestId": "workshop",
-      "proposalId": 6,
-      "transactionHash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+      "proposalId": 16,
+      "transactionHash": "9Ra9zB6cuDswcj3i8YEezNQWuLvt2yYTaFsw1mQozdSG",
       "signer": "council-mandate-mw7zz0zl.testnet",
-      "receipt": "5FYCH8Fxi9yMk6XpPENpEr7eE4miXS3EXHPQ2YqvUJgb",
+      "receipt": "H6kx4jUrJvXvDkWoruXsDA6T9qYX8ScNAtHoSHv2QtgX",
       "verified": true
     }
   ],
-  "reviewBlock": "HWxBJrQWmsAFu7r94gEwvHr91KxrZ8SAwb7vRZnjGbTZ",
+  "reviewBlock": "5hmywFdvcsJYCy8junu95jVKrHiU8XYeVfmwFLoCpquU",
   "evidence": {
     "schema": "mandate-evidence/v1",
-    "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/0",
-    "reviewBlock": "HWxBJrQWmsAFu7r94gEwvHr91KxrZ8SAwb7vRZnjGbTZ",
+    "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+    "reviewBlock": "5hmywFdvcsJYCy8junu95jVKrHiU8XYeVfmwFLoCpquU",
     "identityRegistry": "registry-mandate-mw7zz0zl.testnet",
     "identityPolicy": "team-issued-testnet",
-    "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+    "identityBlock": "37Rggm7EyE1P1kNhrmqS2p2SmRioFwmbQE7JynJWVwaz",
     "mandate": {
-      "schema": "treasury-budget/v1",
-      "title": "Mandate public community budget demonstration",
+      "schema": "treasury-budget/v2",
+      "title": "Mandate request-specific voting and eligibility demonstration",
       "asset": "NEAR",
       "amount": "0.3",
       "requests": [
@@ -187,35 +208,37 @@
         "members": [
           "alice-mandate-mw7zz0zl.testnet",
           "ben-mandate-mw7zz0zl.testnet",
-          "cara-mandate-mw7zz0zl.testnet"
+          "cara-mandate-mw7zz0zl.testnet",
+          "recipient-mandate-mw7zz0zl.testnet"
         ],
         "quorum": 2,
-        "closesNs": "1794152893362000000",
-        "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+        "closesNs": "1794156536618000000",
+        "identityBlock": "37Rggm7EyE1P1kNhrmqS2p2SmRioFwmbQE7JynJWVwaz",
         "registry": "registry-mandate-mw7zz0zl.testnet",
-        "identityPolicy": "team-issued-testnet"
+        "identityPolicy": "team-issued-testnet",
+        "minSupporters": 2
       }
     },
     "result": {
       "represented": 3,
       "quorum": 2,
       "quorumMet": true,
-      "retain": 0,
       "log": [
         {
           "account": "alice-mandate-mw7zz0zl.testnet",
+          "proposalId": 8,
           "delegate": null,
           "counted": true,
           "allocations": {
             "translate": 2,
             "workshop": 1,
-            "testing": 0
+            "testing": -1
           },
-          "retain": 0,
-          "credits": 5
+          "credits": 6
         },
         {
           "account": "ben-mandate-mw7zz0zl.testnet",
+          "proposalId": 9,
           "delegate": null,
           "counted": true,
           "allocations": {
@@ -223,20 +246,40 @@
             "workshop": 2,
             "testing": 1
           },
-          "retain": 0,
           "credits": 6
         },
         {
           "account": "cara-mandate-mw7zz0zl.testnet",
+          "proposalId": 10,
           "delegate": "alice-mandate-mw7zz0zl.testnet",
           "counted": true,
           "allocations": {
             "translate": 2,
             "workshop": 1,
-            "testing": 0
+            "testing": -1
           },
-          "retain": 0,
-          "credits": 5
+          "credits": 6
+        },
+        {
+          "account": "recipient-mandate-mw7zz0zl.testnet",
+          "proposalId": 11,
+          "delegate": null,
+          "counted": false,
+          "reason": "No eligible credential"
+        },
+        {
+          "account": "council-mandate-mw7zz0zl.testnet",
+          "proposalId": 12,
+          "delegate": null,
+          "counted": false,
+          "reason": "Outside electorate"
+        },
+        {
+          "account": "alice-mandate-mw7zz0zl.testnet",
+          "proposalId": 13,
+          "delegate": null,
+          "counted": false,
+          "reason": "Account already used"
         }
       ],
       "remaining": "0.05",
@@ -248,7 +291,11 @@
           "purpose": "Translate the onboarding guide",
           "votes": 5,
           "funded": true,
-          "reason": "Funded"
+          "reason": "Funded",
+          "support": 5,
+          "opposition": 0,
+          "supporters": 3,
+          "minSupporters": 2
         },
         {
           "id": "workshop",
@@ -257,24 +304,91 @@
           "purpose": "Run a welcome workshop",
           "votes": 4,
           "funded": true,
-          "reason": "Funded"
+          "reason": "Funded",
+          "support": 4,
+          "opposition": 0,
+          "supporters": 3,
+          "minSupporters": 2
         },
         {
           "id": "testing",
           "recipient": "recipient-mandate-mw7zz0zl.testnet",
           "amount": "0.2",
           "purpose": "Test the guide with new users",
-          "votes": 1,
+          "votes": -1,
           "funded": false,
-          "reason": "Budget exhausted"
+          "reason": "Too few supporters",
+          "support": 1,
+          "opposition": 2,
+          "supporters": 1,
+          "minSupporters": 2
         }
       ]
     },
     "closed": true,
     "declarationProposals": [
-      1,
-      2,
-      3
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "declarations": [
+      {
+        "schema": "budget-ballot/v2",
+        "allocations": {
+          "translate": 2,
+          "workshop": 1,
+          "testing": -1
+        },
+        "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+        "account": "alice-mandate-mw7zz0zl.testnet",
+        "proposalId": 8
+      },
+      {
+        "schema": "budget-ballot/v2",
+        "allocations": {
+          "translate": 1,
+          "workshop": 2,
+          "testing": 1
+        },
+        "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+        "account": "ben-mandate-mw7zz0zl.testnet",
+        "proposalId": 9
+      },
+      {
+        "account": "cara-mandate-mw7zz0zl.testnet",
+        "delegate": "alice-mandate-mw7zz0zl.testnet",
+        "proposalId": 10
+      },
+      {
+        "schema": "budget-ballot/v2",
+        "allocations": {
+          "testing": 3
+        },
+        "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+        "account": "recipient-mandate-mw7zz0zl.testnet",
+        "proposalId": 11
+      },
+      {
+        "schema": "budget-ballot/v2",
+        "allocations": {
+          "testing": 3
+        },
+        "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+        "account": "council-mandate-mw7zz0zl.testnet",
+        "proposalId": 12
+      },
+      {
+        "schema": "budget-ballot/v2",
+        "allocations": {
+          "testing": 3
+        },
+        "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/7",
+        "account": "alice-mandate-mw7zz0zl.testnet",
+        "proposalId": 13
+      }
     ],
     "credentials": [
       [
@@ -309,18 +423,22 @@
             ]
           ]
         ]
+      ],
+      [
+        "recipient-mandate-mw7zz0zl.testnet",
+        []
       ]
     ],
     "transfers": [
       {
-        "id": 4,
+        "id": 14,
         "requestId": "translate",
         "status": "Rejected",
         "matches": false,
         "proposal": {
-          "id": 4,
+          "id": 14,
           "proposer": "council-mandate-mw7zz0zl.testnet",
-          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
+          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/7\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
           "kind": {
             "Transfer": {
               "token_id": "",
@@ -340,18 +458,18 @@
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Reject"
           },
-          "submission_time": "1794152936977021402"
+          "submission_time": "1794156556530016298"
         }
       },
       {
-        "id": 5,
+        "id": 15,
         "requestId": "translate",
         "status": "Approved",
         "matches": true,
         "proposal": {
-          "id": 5,
+          "id": 15,
           "proposer": "council-mandate-mw7zz0zl.testnet",
-          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
+          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/7\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
           "kind": {
             "Transfer": {
               "token_id": "",
@@ -371,18 +489,18 @@
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Approve"
           },
-          "submission_time": "1794152960019907057"
+          "submission_time": "1794156579702477695"
         }
       },
       {
-        "id": 6,
+        "id": 16,
         "requestId": "workshop",
         "status": "Approved",
         "matches": true,
         "proposal": {
-          "id": 6,
+          "id": 16,
           "proposer": "council-mandate-mw7zz0zl.testnet",
-          "description": "* Notes: {\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"workshop\",\"purpose\":\"Run a welcome workshop\"}",
+          "description": "* Notes: {\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/7\",\"requestId\":\"workshop\",\"purpose\":\"Run a welcome workshop\"}",
           "kind": {
             "Transfer": {
               "token_id": "",
@@ -402,28 +520,28 @@
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Approve"
           },
-          "submission_time": "1794152987010676724"
+          "submission_time": "1794156605690992758"
         }
       }
     ],
     "settlements": [
       {
         "requestId": "translate",
-        "proposalId": 5,
-        "transactionHash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+        "proposalId": 15,
+        "transactionHash": "T7v27UzSqtTajjCv5fPHYwH19r6QkTYcKfgnPg8m99u",
         "signer": "council-mandate-mw7zz0zl.testnet",
-        "receipt": "BBXuzmLeyv2znKLULQD89iiXbTt25XYFg8VEYazoT4Jc",
+        "receipt": "9xEdu2ry9jKKTgesbDw56tF6aCMDEn6etGf3kvYLT7Tz",
         "verified": true
       },
       {
         "requestId": "workshop",
-        "proposalId": 6,
-        "transactionHash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+        "proposalId": 16,
+        "transactionHash": "9Ra9zB6cuDswcj3i8YEezNQWuLvt2yYTaFsw1mQozdSG",
         "signer": "council-mandate-mw7zz0zl.testnet",
-        "receipt": "5FYCH8Fxi9yMk6XpPENpEr7eE4miXS3EXHPQ2YqvUJgb",
+        "receipt": "H6kx4jUrJvXvDkWoruXsDA6T9qYX8ScNAtHoSHv2QtgX",
         "verified": true
       }
     ]
   },
-  "evidenceHash": "21c5fc9e1c5cbb6ae7de93bf987c9bc9ef1528db18ea6ff21c97399124f5f0dc"
+  "evidenceHash": "0fca4dcafcbb2a1430d8ba1bd28e776829ab9e218918cbe14f34aae358d4b424"
 }

@@ -1,6 +1,6 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const vm = require('node:vm');
+const fs = require("node:fs");
+const path = require("node:path");
+const vm = require("node:vm");
 function loadEngine(extra = {}) {
   const context = vm.createContext({
     TextEncoder,
@@ -9,17 +9,19 @@ function loadEngine(extra = {}) {
     btoa,
     AbortSignal,
     URL,
-    crypto: require('node:crypto').webcrypto,
+    crypto: require("node:crypto").webcrypto,
     ...extra,
   });
-  const source = ['core.js', 'budget.js', 'evidence.js']
-    .map((name) => fs.readFileSync(path.join(__dirname, '..', 'src', name), 'utf8'))
-    .join('\n');
+  const source = ["core.js", "budget.js", "evidence.js", "replay.js"]
+    .map((name) =>
+      fs.readFileSync(path.join(__dirname, "..", "src", name), "utf8"),
+    )
+    .join("\n");
   vm.runInContext(
     source +
-      '\nglobalThis.engine={checkBudget,tallyBudget,creditCost,inspectBudget,' +
-      'budgetPaymentArguments,matchBudgetPayment,evidenceForBudget,fingerprintEvidence,decodeBudgetDescription,' +
-      'registryForRound,checkPaymentReceipt,findPaymentReceipt,trezuMemo,trezuRow,evidenceLink,nearSocialArguments};',
+      "\nglobalThis.engine={checkBudget,tallyBudget,creditCost,inspectBudget," +
+      "verifyRecordedRound,usesRequestOpposition,ballotSchema,budgetPaymentArguments,matchBudgetPayment,evidenceForBudget,fingerprintEvidence,decodeBudgetDescription," +
+      "registryForRound,checkPaymentReceipt,findPaymentReceipt,trezuMemo,trezuRow,evidenceLink,nearSocialArguments};",
     context,
   );
   return context.engine;

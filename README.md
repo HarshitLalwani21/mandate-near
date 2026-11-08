@@ -1,76 +1,95 @@
-# The vote said 30 NEAR. The request said 40.
+# The vote said 0.1 NEAR. The request said 0.2.
 
-[Open the live demo](https://harshitlalwani21.github.io/mandate-near/) · [Replay our public budget round](https://harshitlalwani21.github.io/mandate-near/?network=testnet&dao=mandate-mw7zz0zl.sputnikv2.testnet&id=0) · [Watch the walkthrough](public/budget-walkthrough.mp4)
+[Live demo](https://harshitlalwani21.github.io/mandate-near/) · [Recorded round replay](https://harshitlalwani21.github.io/mandate-near/?capture=1) · [Video](public/budget-walkthrough.mp4)
 
-Mandate connects a community's budget choices to exact NEAR treasury payments and successful recipient receipts. Members spend one shared nine-credit allowance across several requests. Named delegation preserves each member's allowance. The treasury keeps its existing Sputnik or Trezu approval policy.
+Mandate checks the connection between a community budget decision, an exact treasury request and its settled recipient receipt. It layers member choice over an existing Sputnik DAO or Trezu treasury; the DAO retains custody and council approval.
 
-Built for NEAR HACKATHON 2026, Social Money.
+## What works
 
-## Try it in two minutes
+- A shared nine-credit ballot across several requests, with request-specific support and opposition. An allocation of +2 or −2 costs four credits. Zero is abstention.
+- Named, one-hop delegation: the represented member retains their own allowance. Cycles and chains do not count.
+- Eligibility at a committed registry block, an explicit electorate, deadline and quorum. Every exclusion includes its actual proposal ID.
+- Each request requires positive net support, at least the committed number of supporting members, and enough remaining budget. No global retain vote suppresses unrelated requests.
+- Exact native-NEAR recipient, amount and mandate-reference checks. Unsigned proposals preserve the existing DAO approval policy.
+- Trezu Notes serialization and parsing, demonstrated by an actually settled Sputnik proposal using that format. This is **format compatibility**, not a completed hosted Trezu user-flow test.
+- Receipt traversal verifies the successful native transfer. Downloadable evidence has a reproducible digest and a pinned public-chain replay link.
+- Saved raw RPC responses replay through the same reader and verifier with no external network. A browser worker also supports the recorded replay.
 
-1. Open the demo. Three fictional members allocate credits among translation, a workshop and user testing. Move one member's votes between requests. The app charges the square of each allocation across the entire ballot. Two allocations of three votes exceed the allowance.
-2. Choose **Try a changed amount**. Members authorized 0.2 NEAR for translation. A 0.3 NEAR request is held. Choose the translation request again to restore the voted amount, then choose **Prepare exact payment**.
-3. Choose the alias account in the member selector and cast its ballot. Its credential duplicates Asha's, so its votes are excluded in **Who was represented?**
-4. Choose **Open a public round**, then **Open our public testnet round**. You will see three real declarations, one delegation, two funded requests, a rejected changed amount and the actual payment proposals.
-5. Under **Check what the treasury will send**, select translation or the workshop, then **Verify this payment's settlement**. The recorded signer and transaction are filled for you. Choose **Verify settlement** to follow the public receipts.
-6. Download the evidence or copy its pinned replay link. Anyone can rerun it from the public chain. A fresh state check finds later payment proposals.
+## Reproduce the real round
 
-The public round uses our own official I-Am-Human registry deployment and team-issued test credentials. All accounts are controlled by the team. This demonstrates the software with real contracts and transactions. The issuer controls eligibility.
+Open **Recorded round replay** above. It loads local static responses, checks their file checksum, reconstructs the budget, replays the eligibility/delegation rules and checks both payment receipts. This is a consistency check against saved RPC data; it does not independently authenticate the chain. For that, open the public round in live mode or run the separate live command.
 
-## Our public testnet results
+Round: testnet / mandate-mw7zz0zl.sputnikv2.testnet / proposal **7**.
 
-The council approved a 0.3 NEAR budget. Alice and Ben filed direct ballots, and Cara delegated to Alice. Their requests received 5, 4 and 1 votes.
+| Request   | Amount    | Net votes | Outcome                                |
+| --------- | --------- | --------- | -------------------------------------- |
+| Translate | 0.1 NEAR  | 5         | Funded and settled                     |
+| Workshop  | 0.15 NEAR | 4         | Funded and settled; Trezu Notes format |
+| Testing   | 0.2 NEAR  | -1        | Not funded                             |
 
-| Request                     | Amount                  | Result                                                     |
-| --------------------------- | ----------------------- | ---------------------------------------------------------- |
-| Translation                 | 0.1 NEAR                | Funded and settled                                         |
-| Welcome workshop            | 0.15 NEAR               | Funded and settled, using Trezu's Notes description format |
-| User testing                | 0.2 NEAR                | Outside the remaining 0.05 NEAR budget                     |
-| Changed translation request | 0.2 NEAR instead of 0.1 | Detected by the reviewer and rejected by the council       |
+Three members are represented: Alice, Ben, and Cara, who delegates to Alice. The round also contains real on-chain declarations excluded because the account has no eligible credential (proposal 11), is outside the electorate (12), or already declared (13). The team filed the changed 0.2 NEAR translation request (14), rejected it, and settled correct requests 15 and 16. This was a controlled test, not an adversary caught in production.
 
-- [Budget proposal transaction](https://testnet.nearblocks.io/txns/5nPeQCqkXB4M3zgx6Wt3mfKegSxFCyXprZFR622JbJaX)
-- [Named delegation](https://testnet.nearblocks.io/txns/44nUG9A7S5hKa2ger8ddL5YiBu58AbNPNh3DSrGN5SZx)
-- [Rejection of the changed amount](https://testnet.nearblocks.io/txns/B1RCHPzg8ovi4W5UYQ84UWjDDfaEKWi98Ge9bb2yPgca)
-- [Settled translation payment](https://testnet.nearblocks.io/txns/cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs)
-- [Settled workshop payment](https://testnet.nearblocks.io/txns/J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT)
+All accounts, the roster, the council and the demo credential issuer are team controlled. There is no independent participant and no neutral issuer in this demonstration. Credentials establish eligibility under that issuer, not unique human identity.
 
-[All public accounts, transactions, snapshot and evidence digest](public/testnet-round.json)
+### Transaction evidence
 
-## Run locally
+- [v2-budget-filed](https://testnet.nearblocks.io/txns/CFW1WBFfKjMt1QuHLKdAHU5X27n2y38CAuKsN6RyaZq1)
+- [v2-budget-approved](https://testnet.nearblocks.io/txns/7TGsM2dRda6sR33SDXTkU1f2dYF5nj4sPSepsWEUYUgg)
+- [v2-alice](https://testnet.nearblocks.io/txns/88gE5Tqx3dsaZd7KjcHqfRDTW1SHPi1MWNa8DvrPhcMS)
+- [v2-ben](https://testnet.nearblocks.io/txns/E8GwfdCYe4VnGJ3txM7U1hhJ8AkPbkCQPYh6gK9KGWo5)
+- [v2-cara](https://testnet.nearblocks.io/txns/H7XZWvfNgx6bW9wspiWqPBu8WptXpadojPLQEqm45Kgf)
+- [v2-ineligible](https://testnet.nearblocks.io/txns/9sVZev2FE3JPQTssWMbDL6Evxi3uTMbP9wB2vu3u9KUe)
+- [v2-outside-roster](https://testnet.nearblocks.io/txns/9Z4nNKsGr2PhwDnk3Ct1cgvMu5uqqu4tfAATXcnnxZcN)
+- [v2-repeated-declaration](https://testnet.nearblocks.io/txns/4UhMWbaxjkdAzKAFyMyN27vsxYJ2DzHZMenQwQcYBatA)
+- [changed-amount-filed](https://testnet.nearblocks.io/txns/7LyystUfP9WiCyrG7GALwGMBKrJF75FGaoLWhXEferMQ)
+- [changed-amount-rejected](https://testnet.nearblocks.io/txns/ACXqQebPXM8AoaqtWLT8RpejKHo6ctvaDweBHrhqRVJm)
+- [translate-payment-filed](https://testnet.nearblocks.io/txns/FC1Ae77sZCwu3pCvL3HzgPK4xGY5vzVnDMgKEij73g6f)
+- [translate-payment-approved](https://testnet.nearblocks.io/txns/T7v27UzSqtTajjCv5fPHYwH19r6QkTYcKfgnPg8m99u)
+- [workshop-payment-filed](https://testnet.nearblocks.io/txns/EbATPEi3vZSBcLKW59dmjegdALXtsfcLzSsppLwojcwU)
+- [workshop-payment-approved](https://testnet.nearblocks.io/txns/9Ra9zB6cuDswcj3i8YEezNQWuLvt2yYTaFsw1mQozdSG)
 
-Node 22 or newer is sufficient. The app and verification suite have no npm dependencies.
+The complete recorded metadata, pinned block, payment receipts and evidence digest are in [testnet-round.json](public/testnet-round.json). Raw responses are in [rpc-capture.json](public/rpc-capture.json), with a companion SHA-256 checksum. The checkpoint digest is **0fca4dcafcbb2a1430d8ba1bd28e776829ab9e218918cbe14f34aae358d4b424**.
 
-```sh
-npm start
-```
+## Run locally or verify without internet
 
-Open http://127.0.0.1:4173. Or open index.html directly for the fictional example. Use HTTP or HTTPS for evidence hashing and copying replay links.
+Requires Node 22 or newer. There are no package downloads or runtime dependencies.
 
 ```sh
 npm test
+npm run test:replay
+npm start
+```
+
+The default test command makes no live RPC calls. The offline command fails on missing responses, inconsistent data or a changed checksum. Serve the app over HTTP for browser worker support; opening the file directly is not equivalent.
+
+Optional, internet required:
+
+```sh
 npm run test:public
 ```
 
-The offline suite exercises shared credits, budget selection, identity reuse, delegation, quorum, deadlines, changed payment fields, Trezu Notes, evidence hashes and successful or failed settlement receipts. The public check reads the saved review block, verifies both real payments, rejects the altered amount and recomputes the evidence digest. Public archival RPCs can be rate limited. A provider error leaves the review incomplete.
+An unavailable or restricted RPC endpoint can make that separate live check fail. This does not prevent offline verification. Only maintainers updating the capture should run capture:public.
 
-## Integration and scope
+## Trust and design limits
 
-- **Sputnik DAO.** Approved signaling Vote proposals commit the round. Member-authored Vote proposals record declarations. Native Transfer proposals preserve custody and the council's approval rules. The verifier follows the deciding approval transaction to its exact directly generated native transfer receipt.
-- **Trezu.** The native payment form stores its memo under Notes. Mandate produces the exact recipient, amount and JSON Notes, and reads Trezu's `* Notes: ...` wrapper. We tested that description format on the real workshop payout through Sputnik. The hosted Trezu interface has not been exercised with our testnet treasury. A CSV is also available.
-- **near.social.** Mandate prepares a FastData post containing the evidence digest and replay link. Posting uses `__fastdata_kv` on `social`. This project has not published a mainnet social post.
-- **Identity.** Standard public registries are the default. A custom registry is accepted only for an explicitly disclosed team-issued testnet round. The demo uses the official registry binary, with its source and artifact digest recorded.
-- **Research.** A shared budget across several choices creates an actual allocation tradeoff. The nine-credit allowance, full-request selection rule and delegation semantics are disclosed design choices.
+The council selects the roster, issuer and mandate. Mandate provides an auditable review, not trust-minimized governance. The official registry represents each issuer/token pair with one owner; the transfer implementation removes the previous owner's balance and updates ownership. A same-pair/two-wallet fixture tests defensive consistency and is not a realistic Sybil-resistance demonstration. One person obtaining several credentials remains an issuer problem. [Registry source](https://github.com/near-ndc/i-am-human/tree/93e07da/contracts/registry/src).
 
-Read the [mechanism, source attribution and trust assumptions](docs/guide.md). The legacy [single-payment reviewer](payment.html) remains available for v1–v3 mandates.
+The council can bypass Mandate and pay using another route. A passing member budget is advisory until the council approves the exact request. This separation lets members express priorities without taking treasury custody from the existing DAO; small teams that do not need separate member input may reasonably prefer the DAO alone.
 
-## Limits
+Quadratic costs do not prove optimal allocations or collusion resistance. Ranking is deterministic and greedy: net votes descending, request ID breaks ties, then requests that fit are selected. Fixed project costs, delegate concentration, issuer bias and coercion remain limitations. A minimum of two supporters is a committed policy choice, not a general security guarantee.
 
-The current app reviews native NEAR transfers, up to 100 members, ten requests and 500 intervening proposals. It refuses certification when proposal history is incomplete. Ballots and allocations are public. Identity depends on issuer policy. Named delegation is one hop and needs an eligible direct ballot.
+The v2 schema changes voting semantics. Historical v1 budgets remain readable under their original global-retain rule; they are not silently reinterpreted. The legacy payment page is retained for reference and removed from primary navigation. CSV export is removed from the main workflow to avoid a second payment path. near.social remains an unsigned draft helper until an actual post exists.
 
-The client prepares and reviews transactions. Treasury signers can authorize payments through other paths. Concurrent requests submitted after a review snapshot can conflict. Recheck the actual filed proposal before approving it. The settlement verifier supports one direct `act_proposal` / `VoteApprove` call and an unambiguous matching receipt.
+## Track fit and inspiration
 
-## Attribution
+The [Social Money brief](https://github.com/nearai/near-hackathon-prompt-examples/blob/main/tracks/12-social.md) asks for community coordination using Sputnik DAO, Trezu and named accounts while preserving treasury custody and approvals. Mandate addresses shared budgets; the bounty-board text is an example prompt, not a claim that Mandate implements its reputation tiers.
 
-WNS.Vote inspired the named identity and delegation flow. ActionForge inspired binding a concrete action to a voting outcome. Eternal Commons inspired evidence across funding stages. Mandate adapts those patterns to NEAR treasury records. The published app code was developed during this hackathon with Codex assistance. No Solidity contracts from those projects are deployed by Mandate.
+- [WNS.Vote](https://ethglobal.com/showcase/wns-vote-cw6na): identity-aware participation and quadratic governance. Mandate uses named NEAR accounts and issuer-defined eligibility; it does not inherit World ID guarantees. Its disabled World ID verification comment states that the Sepolia Worldcoin implementation was broken, so that code is not evidence of a deliberate design improvement.
+- [ActionForge](https://ethglobal.com/showcase/actionforge-09b09): connecting a vote to a concrete action. Mandate checks exact existing treasury requests and receipts; it does not copy autonomous execution or enforce payments on-chain.
+- [Eternal Commons](https://ethglobal.com/showcase/eternal-commons-dnt9j): allocating across projects and keeping evidence through payout. Mandate retains raw declarations, pinned identity reads and settlement receipts.
 
-Original authors retain ownership of their repositories. The research references and official registry artifact provenance are in [the guide](docs/guide.md).
+These are conceptual inspirations, not claims that their code or guarantees were imported. We do not claim receipt verification alone is novel. Mandate's specific proposition is the reproducible comparison between the committed member mandate and the treasury request, with existing-treasury compatibility.
+
+## Evaluation boundaries
+
+No first-place or top-three ranking is established. Test counts are not comparable measures of project quality. Independent users, a neutral issuer and a hosted Trezu workflow are still unproven. They need real participants and testing, not simulated accounts or extra features. Milestones, new tokens, an AI watchdog and a new multisig are outside this submission.

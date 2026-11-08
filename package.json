@@ -9,7 +9,9 @@
   },
   "scripts": {
     "start": "node scripts/serve.cjs",
-    "test": "node --test tests/budget.test.cjs && node tests/payment.cjs",
-    "test:public": "node scripts/verify-public.cjs"
+    "test": "node --test tests/*.test.cjs && node tests/payment.cjs && node scripts/replay.cjs",
+    "test:public": "node scripts/verify-public.cjs",
+    "test:replay": "node scripts/replay.cjs",
+    "capture:public": "node scripts/capture-public.cjs"
   }
 }
