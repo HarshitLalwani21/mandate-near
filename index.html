@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Compare a community budget vote with the exact treasury payment and verify the recipient's receipt on NEAR."
+    />
+    <title>Mandate — The vote said 30. The request said 40.</title>
+    <link rel="stylesheet" href="src/budget.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="index.html">Mandate<span>Community budgets on NEAR</span></a>
+      <nav aria-label="Main navigation">
+        <a href="payment.html">Single payment</a><a href="docs/guide.md">Build guide</a
+        ><a href="public/budget-walkthrough.mp4" id="videoLink">Watch the demo</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">A vote should survive the payment request.</p>
+          <h1>The vote said 30.<br />The request said 40.</h1>
+          <p>
+            Let members choose what to fund. Prepare the exact treasury payment. Follow the money to
+            its receipt.
+          </p>
+        </div>
+        <aside>
+          <p>One person’s credits,<br />across the whole budget.</p>
+          <strong>9</strong><span>Two votes cost four credits.<br />Three votes cost nine.</span>
+        </aside>
+      </section>
+      <div class="toolbar">
+        <div>
+          <span class="source" id="sourceLabel">Interactive example</span
+          ><span id="identityLabel">Fictional credentials</span>
+        </div>
+        <div class="actions">
+          <button id="resetBudget" class="secondary">Reset example</button
+          ><a class="button secondary" href="payment.html?example=split-wallet"
+            >Try the wallet attack</a
+          ><button id="openLive">Open a public round</button>
+        </div>
+      </div>
+      <section id="liveInputs" class="panel" hidden>
+        <h2>Open a public round</h2>
+        <p>
+          Enter the Sputnik DAO and approved budget proposal. Every member declaration is read from
+          the same finalized block.
+        </p>
+        <div class="form-row">
+          <label
+            >Network<select id="network">
+              <option value="testnet">Testnet</option>
+              <option value="mainnet">Mainnet</option>
+            </select></label
+          ><label
+            >DAO account<input
+              id="budgetDao"
+              placeholder="community.sputnikv2.testnet"
+              spellcheck="false" /></label
+          ><label>Budget proposal ID<input id="budgetId" inputmode="numeric" /></label
+          ><button id="loadBudget">Read the round</button>
+        </div>
+        <p id="loadStatus" role="status"></p>
+        <button class="secondary" id="teamRound" hidden>Open our public testnet round</button>
+      </section>
+      <div id="roundView">
+        <section class="round-heading">
+          <div>
+            <p class="eyebrow" id="roundState">Example · voting has closed</p>
+            <h2 id="budgetTitle">Choose what the community funds</h2>
+            <p id="roundReference">Fictional community</p>
+          </div>
+          <div class="budget-total">
+            <span>Total budget</span><strong id="budgetAmount">0.3 NEAR</strong
+            ><small id="budgetRemaining"></small>
+          </div>
+        </section>
+        <div class="workspace">
+          <section class="panel ballot">
+            <div class="panel-heading">
+              <h2>Use your voice</h2>
+              <span id="creditCount" class="credits">5 / 9 credits</span>
+            </div>
+            <p class="hint">
+              Spend your nine credits across the requests and keeping funds in reserve.
+            </p>
+            <label>Member<select id="budgetMember"></select></label>
+            <div class="form-row">
+              <label
+                >Participation<select id="participation">
+                  <option value="direct">Vote directly</option>
+                  <option value="delegate">Delegate for this round</option>
+                </select></label
+              ><label id="delegateField" hidden
+                >Representative<select id="budgetDelegate"></select
+              ></label>
+            </div>
+            <div id="allocationFields"></div>
+            <label id="retainField"
+              >Votes to retain funds<input
+                id="retainVotes"
+                type="range"
+                min="0"
+                max="3"
+                step="1"
+                value="0"
+              /><output id="retainValue">0</output></label
+            >
+            <p id="ballotStatus" role="status"></p>
+            <button id="submitBallot">Cast in the example</button>
+            <pre id="ballotArgs" hidden></pre>
+            <p class="hint" id="ballotHelp">
+              This changes the fictional example. Each person gets nine credits, including when
+              delegating.
+            </p>
+          </section>
+          <section class="panel results">
+            <div class="panel-heading">
+              <h2>What gets funded</h2>
+              <span id="turnout" class="quiet"></span>
+            </div>
+            <p class="hint">
+              Requests are ranked by votes. Ties use the committed request ID. A request must beat
+              retaining funds and fit the remaining budget.
+            </p>
+            <div id="requestResults"></div>
+            <p id="resultStatus" role="status"></p>
+          </section>
+        </div>
+        <details>
+          <summary>Who was represented?</summary>
+          <p class="hint">
+            The first valid declaration from each account and credential is used. Representatives
+            need their own direct ballot.
+          </p>
+          <div id="memberLedger"></div>
+        </details>
+        <section class="panel payment-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">From decision to payment</p>
+              <h2>Check what the treasury will send</h2>
+            </div>
+            <span id="paymentSource" class="quiet">Unsigned example</span>
+          </div>
+          <div class="form-row">
+            <label>Request<select id="selectedRequest"></select></label
+            ><label>Recipient<input id="requestPayee" spellcheck="false" /></label
+            ><label>Amount in NEAR<input id="requestAmount" inputmode="decimal" /></label>
+          </div>
+          <p id="paymentMatch" role="status" class="status"></p>
+          <div class="actions">
+            <button id="prepareRequest">Prepare exact payment</button
+            ><button id="tamperRequest" class="secondary">Try a changed amount</button
+            ><button id="downloadTrezu" class="secondary">Trezu payment CSV</button>
+          </div>
+          <p class="hint">
+            Sputnik and Trezu keep custody and approvals. For Trezu’s native NEAR payment form, put
+            the displayed reference JSON in Notes. A CSV imported as a new request can cause a
+            second payment. Review the existing proposal first.
+          </p>
+          <button id="trezuInstructions" class="secondary">Prepare Trezu form details</button>
+          <pre id="trezuFields" hidden></pre>
+          <pre id="paymentArgs" hidden></pre>
+          <div id="existingTransfers"></div>
+        </section>
+        <section class="panel" id="evidencePanel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Anyone can check the result</p>
+              <h2>The decision’s evidence</h2>
+            </div>
+            <span id="evidenceKind" class="quiet">Example data</span>
+          </div>
+          <p>
+            Download the mandate, vote tally and matching requests. A public round can be rerun at
+            its pinned block or refreshed to see later payments.
+          </p>
+          <div class="actions">
+            <button id="downloadEvidence">Download evidence</button
+            ><button id="rerunBudget" class="secondary">Re-run this check</button
+            ><button id="refreshBudget" class="secondary" hidden>Check latest state</button
+            ><button id="shareBudget" class="secondary" hidden>Copy evidence link</button
+            ><button id="socialDraft" class="secondary" hidden>Prepare near.social post</button>
+          </div>
+          <p id="evidenceStatus" role="status"></p>
+          <code id="evidenceDigest"></code>
+          <pre id="socialArguments" hidden></pre>
+        </section>
+      </div>
+      <section class="panel" id="receiptPanel" hidden>
+        <h2>Did the money arrive?</h2>
+        <p>
+          Check the deciding council approval transaction and its directly generated transfer
+          receipt.
+        </p>
+        <div class="form-row">
+          <label>Council signer<input id="receiptSigner" spellcheck="false" /></label
+          ><label>Approval transaction hash<input id="receiptHash" spellcheck="false" /></label
+          ><button id="checkReceipt">Verify settlement</button>
+        </div>
+        <p id="receiptStatus" role="status"></p>
+        <a id="receiptExplorer" hidden target="_blank" rel="noopener noreferrer"
+          >Inspect the transaction</a
+        >
+      </section>
+      <details id="createPanel">
+        <summary>Prepare a new budget round</summary>
+        <p>
+          The JSON commits the budget, requests, roster, quorum and deadline. Check the named
+          accounts and treasury policy before filing the Sputnik signaling vote.
+        </p>
+        <label>Budget JSON<textarea id="newBudget" rows="15" spellcheck="false"></textarea></label>
+        <div class="form-row">
+          <label
+            >Network<select id="createNetwork">
+              <option value="testnet">Testnet</option>
+              <option value="mainnet">Mainnet</option>
+            </select></label
+          ><label>DAO<input id="createDao" spellcheck="false" /></label
+          ><button id="prepareBudget">Check members and prepare</button>
+        </div>
+        <p id="createStatus" role="status"></p>
+        <pre id="createArgs"></pre>
+      </details>
+      <footer>
+        <p>Built for NEAR HACKATHON · Social Money</p>
+        <a href="docs/guide.md">Research, inspiration and trust assumptions</a
+        ><a href="payment.html">Legacy v1–v3 payment reviewer</a>
+      </footer>
+    </main>
+    <script src="src/core.js"></script>
+    <script src="src/budget.js"></script>
+    <script src="src/evidence.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

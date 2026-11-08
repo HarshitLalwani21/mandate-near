@@ -1,0 +1,15 @@
+{
+  "name": "mandate-near",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Community budgets, exact treasury payments and verifiable settlement on NEAR.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "test": "node --test tests/budget.test.cjs && node tests/payment.cjs",
+    "test:public": "node scripts/verify-public.cjs"
+  }
+}

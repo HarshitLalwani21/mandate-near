@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  /><title>Mandate · NEAR treasury review</title>
+  <link rel="stylesheet" href="src/payment.css" />
+  <header>
+    <strong><a href="index.html" style="color: inherit; text-decoration: none">Mandate</a></strong
+    ><span>NEAR treasury review</span>
+  </header>
+  <main>
+    <h1>Did we vote for this payment?</h1>
+    <p>
+      Follow a community member’s vote through delegation to the exact payment their treasury is
+      being asked to approve.
+    </p>
+    <nav class="actions" aria-label="Demo cases">
+      <button id="tryAlias">Try the second-wallet attack</button
+      ><button class="secondary" id="tryAmount">Try the 40 NEAR request</button
+      ><button class="secondary" id="trySettlement">Replay a real settlement</button>
+    </nav>
+    <div class="bar">
+      <label for="mode">Review source</label
+      ><select id="mode">
+        <option value="demo">Guided example · fictional records</option>
+        <option value="live">Sputnik DAO · read finalized records</option>
+      </select>
+    </div>
+    <section class="card" id="live" hidden>
+      <h2>Read a proposal pair</h2>
+      <p>
+        Enter the DAO and an approved mandate. To review an existing transfer, also enter its
+        proposal ID. To prepare the exact payment from a closed member vote, leave the payment ID
+        empty.
+      </p>
+      <label for="net">Network</label
+      ><select id="net">
+        <option>testnet</option>
+        <option>mainnet</option></select
+      ><label for="dao">DAO account</label
+      ><input id="dao" placeholder="your-dao.sputnik-v2.testnet" />
+      <div class="grid">
+        <div>
+          <label for="aid">Approval proposal ID</label><input id="aid" inputmode="numeric" />
+        </div>
+        <div>
+          <label for="pid">Payment proposal ID</label><input id="pid" inputmode="numeric" />
+        </div>
+      </div>
+      <div class="actions">
+        <button id="fetch">Review existing payment</button
+        ><button id="makeTransfer" class="secondary">Prepare payment from vote</button>
+      </div>
+      <small id="rpcstatus" role="status"></small>
+      <pre id="transferArguments"></pre>
+    </section>
+    <div id="review">
+      <div class="grid">
+        <section class="card">
+          <span class="tag" id="source"></span>
+          <h2>Community approval</h2>
+          <dl id="baseline"></dl>
+          <details open>
+            <summary>Authorization record</summary>
+            <pre id="votes"></pre>
+            <div id="dup">
+              <p>
+                Each fictional member has nine credits. Assigning three votes to pay costs nine. Two
+                votes to pay and one to keep the funds costs five.<label for="scenario"
+                  >Example ballots</label
+                ><select id="scenario">
+                  <option value="delegated">Asha delegates to Ben</option>
+                  <option value="absent">Representative misses the vote</option>
+                  <option value="attack">Second wallet flips the decision</option>
+                  <option value="approved">Approve the payout</option>
+                  <option value="missing">Remove the second member</option>
+                  <option value="reserve">Favor keeping funds in reserve</option>
+                </select>
+              </p>
+              <button class="secondary" id="alias">Try the member’s second account</button>
+              <p id="comparison" hidden></p>
+              <p id="aliasResult" role="status"></p>
+            </div>
+          </details>
+        </section>
+        <section class="card">
+          <span class="tag" id="requestSource"></span>
+          <h2>Payment request</h2>
+          <label for="recipient">Recipient</label><input id="recipient" /><label for="amount"
+            >Amount in NEAR</label
+          ><input id="amount" inputmode="decimal" /><label for="purpose">Purpose</label
+          ><input id="purpose" /><label for="ref">Approval reference</label><input id="ref" />
+          <div class="actions">
+            <button class="secondary" id="restore">Use approved values</button>
+          </div>
+        </section>
+      </div>
+      <div class="card">
+        <h2>Review result</h2>
+        <p class="status" id="verdict" role="status"></p>
+        <ul id="checks"></ul>
+        <button id="csv">Export matching row for Trezu</button><small id="note"></small>
+      </div>
+    </div>
+    <section class="card" id="settlement" hidden>
+      <h2>Did the money arrive?</h2>
+      <p>
+        Enter the transaction that cast the deciding approval vote on this Sputnik transfer. Mandate
+        follows its receipts to the recipient.
+      </p>
+      <div class="grid">
+        <div>
+          <label for="txSigner">Council signer</label><input id="txSigner" spellcheck="false" />
+        </div>
+        <div>
+          <label for="txHash">Approval transaction hash</label
+          ><input id="txHash" spellcheck="false" />
+        </div>
+      </div>
+      <div class="actions">
+        <button id="trace">Verify payment receipt</button
+        ><a id="explorer" hidden target="_blank" rel="noopener noreferrer"
+          >Open transaction in explorer</a
+        >
+      </div>
+      <pre id="settled" role="status"></pre>
+    </section>
+    <details id="exampleAction">
+      <summary>See the example treasury proposal</summary>
+      <pre id="exampleArguments"></pre>
+    </details>
+    <details id="historicalPayment">
+      <summary>Replay a settled testnet payment</summary>
+      <p>
+        An independent Sputnik DAO paid 0.1 testnet NEAR for a demo-night pizza. Follow proposal #0
+        into the approval transaction and the recipient’s transfer receipt. This historical payment
+        demonstrates settlement verification separately from the Mandate voting example.
+      </p>
+      <button id="paidReplay">Replay the 0.1 NEAR transfer</button>
+      <pre id="paidResult" role="status"></pre>
+      <a
+        href="https://testnet.nearblocks.io/txns/764sHLfGmpvzDrHyGA8uFsLJRL9xUhPTf63oaYpRf2HF"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Inspect the public transaction</a
+      >
+    </details>
+    <details>
+      <summary>Replay two public testnet records</summary>
+      <p>
+        Read a historical Sputnik council proposal and an identity check at the same finalized
+        block. These public records demonstrate the two contract reads used by Mandate. The payment
+        example above uses fictional records.
+      </p>
+      <button id="replay">Read public records</button>
+      <pre id="replayResult" role="status"></pre>
+    </details>
+    <details>
+      <summary>Check members and open a round</summary>
+      <p>
+        Use a shared treasury’s named members to prepare a Sputnik signaling vote. Their eligibility
+        and the payment terms are recorded at the start of the round.
+      </p>
+      <label for="roundNet">Network</label
+      ><select id="roundNet">
+        <option>testnet</option>
+        <option>mainnet</option>
+      </select>
+      <div class="grid">
+        <div>
+          <label for="roundDao">Sputnik DAO</label><input id="roundDao" spellcheck="false" />
+        </div>
+        <div>
+          <label for="roundPayee">Payment recipient</label
+          ><input id="roundPayee" spellcheck="false" />
+        </div>
+      </div>
+      <label for="roundPurpose">What will this payment fund?</label><input id="roundPurpose" />
+      <div class="grid">
+        <div>
+          <label for="roundAmount">Amount in NEAR</label
+          ><input id="roundAmount" inputmode="decimal" />
+        </div>
+        <div>
+          <label for="roundClose">Voting closes at your local time</label
+          ><input id="roundClose" type="datetime-local" />
+        </div>
+      </div>
+      <label for="roundMembers">Member accounts, separated by commas</label
+      ><input id="roundMembers" spellcheck="false" />
+      <label for="roundQuorum">Minimum participating members</label
+      ><input id="roundQuorum" type="number" min="1" max="100" value="2" />
+      <div class="actions"><button id="enroll">Check registry and prepare mandate</button></div>
+      <pre id="enrollment" role="status"></pre>
+      <pre id="openRoundArgs"></pre>
+    </details>
+    <details>
+      <summary>Prepare a ballot or delegation</summary>
+      <p>
+        Create the description for a Sputnik signaling Vote. Submit it from your own enrolled NEAR
+        account before the round closes.
+      </p>
+      <label for="ballotRef">Mandate reference</label
+      ><input id="ballotRef" placeholder="testnet/example-dao.testnet/7" />
+      <label for="choice">Member action</label
+      ><select id="choice">
+        <option value="delegate">Delegate this payment decision</option>
+        <option value="vote">Vote directly</option>
+      </select>
+      <div id="delegateInputs">
+        <label for="delegateTo">Representative’s NEAR account</label
+        ><input id="delegateTo" placeholder="ben.testnet" />
+      </div>
+      <div id="directInputs" hidden>
+        <div class="grid">
+          <div>
+            <label for="vp">Votes to pay</label
+            ><input id="vp" type="number" min="0" max="3" value="2" />
+          </div>
+          <div>
+            <label for="vk">Votes to retain funds</label
+            ><input id="vk" type="number" min="0" max="3" value="1" />
+          </div>
+        </div>
+      </div>
+      <p id="composerStatus" role="status"></p>
+      <pre id="proposalText"></pre>
+      <button id="downloadVote" disabled>Download Sputnik proposal arguments</button>
+    </details>
+    <details>
+      <summary>Proposal format and review limits</summary>
+      <p>
+        Use the following JSON as the description of a Sputnik Vote. For a native NEAR Transfer, use
+        the Transfer JSON as its description. Replace the example reference with
+        network/DAO/approval-ID. The recipient and amount are read from the actual Transfer action.
+      </p>
+      <pre id="formats"></pre>
+      <p>
+        DAO records are read together at one finalized block. Version 3 adds named delegation and
+        checks credentials at the registry block chosen in the original mandate. Use a real
+        finalized block hash from before opening the round; older snapshots may need archival RPC
+        access. A member can delegate to one enrolled representative for this payout. Only a
+        representative with a valid direct ballot can represent others. Version 2 requires a DAO
+        approval plus a separate ballot round. Each enrolled account casts a ballot by submitting a
+        signaling Vote proposal. The proposer identifies the voter. The first valid ballot per
+        eligible credential counts. Nine credits buy support for payment or keeping funds, at the
+        square of each allocation. Quorum and a strict pay majority are required. Version 2
+        credentials are checked at the review block through the network’s I-Am-Human registry.
+        Version 1 shows the original DAO approval only. A match covers the listed fields only.
+        Version 3 flags an earlier pending or approved transfer proposal that cites the same
+        mandate. Treasury members control execution. Actual settlement must be checked separately.
+        Trezu’s Requestor and Finance roles control submission and approval.
+      </p>
+      <a href="https://docs.trezu.org/payments/bulk-payment">Trezu payment format</a> ·
+      <a href="https://github.com/near-daos/sputnik-dao-contract">Sputnik DAO</a> ·
+      <a href="https://github.com/benlevy0/wns-vote">WNS.Vote inspiration</a>
+    </details>
+  </main>
+  <script src="src/core.js"></script>
+  <script src="src/payment.js"></script>
+</html>

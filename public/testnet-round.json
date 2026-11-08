@@ -1,0 +1,383 @@
+{
+  "prefix": "mandate-mw7zz0zl",
+  "accounts": {
+    "council": "council-mandate-mw7zz0zl.testnet",
+    "alice": "alice-mandate-mw7zz0zl.testnet",
+    "ben": "ben-mandate-mw7zz0zl.testnet",
+    "cara": "cara-mandate-mw7zz0zl.testnet",
+    "recipient": "recipient-mandate-mw7zz0zl.testnet",
+    "registry": "registry-mandate-mw7zz0zl.testnet"
+  },
+  "identityPolicy": "team-issued-testnet",
+  "transactions": [
+    {
+      "stage": "registry-deployed",
+      "hash": "4D32aSQf9NTa6CcsbWJhXc5brt3vaZc47V7PbDMpSA3K"
+    },
+    {
+      "stage": "team-credentials-issued",
+      "hash": "H1egYZ62DwpmwvLsVKAwk4MYPtz5JgWe1V15ngJ2T7NS"
+    },
+    {
+      "stage": "sputnik-dao-created",
+      "hash": "H22Zwg54wZ7se8vfyywESZWik44rwtX5aVADDm7y3qZJ"
+    },
+    {
+      "stage": "budget-filed",
+      "hash": "5nPeQCqkXB4M3zgx6Wt3mfKegSxFCyXprZFR622JbJaX",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "budget-approved",
+      "hash": "GyxKg42t4eb1wQT2fJoRhNfqDTee9YCwAcXtAeHHs63K",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "declaration-alice",
+      "hash": "Hy2i8WUz6EVUjAMkZCdCpF39Vok53Xep5EodicKiih1k",
+      "signer": "alice-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "declaration-ben",
+      "hash": "DozWqxewEbzc4TZqughtdcWLfmdKH6FXVARj3ZJPkxHa",
+      "signer": "ben-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "declaration-cara",
+      "hash": "44nUG9A7S5hKa2ger8ddL5YiBu58AbNPNh3DSrGN5SZx",
+      "signer": "cara-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "changed-amount-filed",
+      "hash": "J6kqf4GUGo4nuMp8YedrchqH2UUmUeHBpysJtsdoC4ej",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "changed-amount-rejected",
+      "hash": "B1RCHPzg8ovi4W5UYQ84UWjDDfaEKWi98Ge9bb2yPgca",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "translate-payment-filed",
+      "hash": "74dDt7KXNHyKz1qgXL6ZXquiFbShfG3vUdrdqYe9YLoe",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "translate-payment-approved",
+      "hash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "workshop-payment-filed",
+      "hash": "BrtNKSivhry9PadSQvrntRgwzKF68DLpqLpmHPoH85gL",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    },
+    {
+      "stage": "workshop-payment-approved",
+      "hash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+      "signer": "council-mandate-mw7zz0zl.testnet"
+    }
+  ],
+  "registrySource": {
+    "repository": "https://github.com/near-ndc/i-am-human",
+    "artifact": "contracts/deployed/registry.wasm",
+    "sha256": "a0adc1f646921511a73e57c9d5d00a4388500d9382bce2bb06a66bc9505a5bb4"
+  },
+  "dao": "mandate-mw7zz0zl.sputnikv2.testnet",
+  "budget": {
+    "schema": "treasury-budget/v1",
+    "title": "Mandate public community budget demonstration",
+    "asset": "NEAR",
+    "amount": "0.3",
+    "requests": [
+      {
+        "id": "translate",
+        "recipient": "recipient-mandate-mw7zz0zl.testnet",
+        "amount": "0.1",
+        "purpose": "Translate the onboarding guide"
+      },
+      {
+        "id": "workshop",
+        "recipient": "recipient-mandate-mw7zz0zl.testnet",
+        "amount": "0.15",
+        "purpose": "Run a welcome workshop"
+      },
+      {
+        "id": "testing",
+        "recipient": "recipient-mandate-mw7zz0zl.testnet",
+        "amount": "0.2",
+        "purpose": "Test the guide with new users"
+      }
+    ],
+    "round": {
+      "members": [
+        "alice-mandate-mw7zz0zl.testnet",
+        "ben-mandate-mw7zz0zl.testnet",
+        "cara-mandate-mw7zz0zl.testnet"
+      ],
+      "quorum": 2,
+      "closesNs": "1794152893362000000",
+      "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+      "registry": "registry-mandate-mw7zz0zl.testnet",
+      "identityPolicy": "team-issued-testnet"
+    }
+  },
+  "budgetProposalId": 0,
+  "declarations": {
+    "alice": 1,
+    "ben": 2,
+    "cara": 3
+  },
+  "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/0",
+  "identityDisclosure": "All accounts and the registry authority are controlled by the team. The credentials are test fixtures issued on a real NEAR registry deployment; they do not establish independent proof of personhood.",
+  "closesAt": "2026-11-08T15:48:13.362Z",
+  "badProposalId": 4,
+  "payments": [
+    {
+      "requestId": "translate",
+      "proposalId": 5,
+      "transactionHash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+      "signer": "council-mandate-mw7zz0zl.testnet",
+      "receipt": "BBXuzmLeyv2znKLULQD89iiXbTt25XYFg8VEYazoT4Jc",
+      "verified": true
+    },
+    {
+      "requestId": "workshop",
+      "proposalId": 6,
+      "transactionHash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+      "signer": "council-mandate-mw7zz0zl.testnet",
+      "receipt": "5FYCH8Fxi9yMk6XpPENpEr7eE4miXS3EXHPQ2YqvUJgb",
+      "verified": true
+    }
+  ],
+  "reviewBlock": "HWxBJrQWmsAFu7r94gEwvHr91KxrZ8SAwb7vRZnjGbTZ",
+  "evidence": {
+    "schema": "mandate-evidence/v1",
+    "reference": "testnet/mandate-mw7zz0zl.sputnikv2.testnet/0",
+    "reviewBlock": "HWxBJrQWmsAFu7r94gEwvHr91KxrZ8SAwb7vRZnjGbTZ",
+    "identityRegistry": "registry-mandate-mw7zz0zl.testnet",
+    "identityPolicy": "team-issued-testnet",
+    "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+    "mandate": {
+      "schema": "treasury-budget/v1",
+      "title": "Mandate public community budget demonstration",
+      "asset": "NEAR",
+      "amount": "0.3",
+      "requests": [
+        {
+          "id": "translate",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.1",
+          "purpose": "Translate the onboarding guide"
+        },
+        {
+          "id": "workshop",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.15",
+          "purpose": "Run a welcome workshop"
+        },
+        {
+          "id": "testing",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.2",
+          "purpose": "Test the guide with new users"
+        }
+      ],
+      "round": {
+        "members": [
+          "alice-mandate-mw7zz0zl.testnet",
+          "ben-mandate-mw7zz0zl.testnet",
+          "cara-mandate-mw7zz0zl.testnet"
+        ],
+        "quorum": 2,
+        "closesNs": "1794152893362000000",
+        "identityBlock": "GVajpMqiikK7txcaiTm3E43NWj8mdJtLGPYhEhCRkdmy",
+        "registry": "registry-mandate-mw7zz0zl.testnet",
+        "identityPolicy": "team-issued-testnet"
+      }
+    },
+    "result": {
+      "represented": 3,
+      "quorum": 2,
+      "quorumMet": true,
+      "retain": 0,
+      "log": [
+        {
+          "account": "alice-mandate-mw7zz0zl.testnet",
+          "delegate": null,
+          "counted": true,
+          "allocations": {
+            "translate": 2,
+            "workshop": 1,
+            "testing": 0
+          },
+          "retain": 0,
+          "credits": 5
+        },
+        {
+          "account": "ben-mandate-mw7zz0zl.testnet",
+          "delegate": null,
+          "counted": true,
+          "allocations": {
+            "translate": 1,
+            "workshop": 2,
+            "testing": 1
+          },
+          "retain": 0,
+          "credits": 6
+        },
+        {
+          "account": "cara-mandate-mw7zz0zl.testnet",
+          "delegate": "alice-mandate-mw7zz0zl.testnet",
+          "counted": true,
+          "allocations": {
+            "translate": 2,
+            "workshop": 1,
+            "testing": 0
+          },
+          "retain": 0,
+          "credits": 5
+        }
+      ],
+      "remaining": "0.05",
+      "requests": [
+        {
+          "id": "translate",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.1",
+          "purpose": "Translate the onboarding guide",
+          "votes": 5,
+          "funded": true,
+          "reason": "Funded"
+        },
+        {
+          "id": "workshop",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.15",
+          "purpose": "Run a welcome workshop",
+          "votes": 4,
+          "funded": true,
+          "reason": "Funded"
+        },
+        {
+          "id": "testing",
+          "recipient": "recipient-mandate-mw7zz0zl.testnet",
+          "amount": "0.2",
+          "purpose": "Test the guide with new users",
+          "votes": 1,
+          "funded": false,
+          "reason": "Budget exhausted"
+        }
+      ]
+    },
+    "closed": true,
+    "declarationProposals": [1, 2, 3],
+    "credentials": [
+      ["ben-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [2]]]],
+      ["alice-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [1]]]],
+      ["cara-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [3]]]]
+    ],
+    "transfers": [
+      {
+        "id": 4,
+        "requestId": "translate",
+        "status": "Rejected",
+        "matches": false,
+        "proposal": {
+          "id": 4,
+          "proposer": "council-mandate-mw7zz0zl.testnet",
+          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
+          "kind": {
+            "Transfer": {
+              "token_id": "",
+              "receiver_id": "recipient-mandate-mw7zz0zl.testnet",
+              "amount": "200000000000000000000000",
+              "msg": null
+            }
+          },
+          "status": "Rejected",
+          "vote_counts": {
+            "council": [0, 1, 0]
+          },
+          "votes": {
+            "council-mandate-mw7zz0zl.testnet": "Reject"
+          },
+          "submission_time": "1794152936977021402"
+        }
+      },
+      {
+        "id": 5,
+        "requestId": "translate",
+        "status": "Approved",
+        "matches": true,
+        "proposal": {
+          "id": 5,
+          "proposer": "council-mandate-mw7zz0zl.testnet",
+          "description": "{\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"translate\",\"purpose\":\"Translate the onboarding guide\"}",
+          "kind": {
+            "Transfer": {
+              "token_id": "",
+              "receiver_id": "recipient-mandate-mw7zz0zl.testnet",
+              "amount": "100000000000000000000000",
+              "msg": null
+            }
+          },
+          "status": "Approved",
+          "vote_counts": {
+            "council": [1, 0, 0]
+          },
+          "votes": {
+            "council-mandate-mw7zz0zl.testnet": "Approve"
+          },
+          "submission_time": "1794152960019907057"
+        }
+      },
+      {
+        "id": 6,
+        "requestId": "workshop",
+        "status": "Approved",
+        "matches": true,
+        "proposal": {
+          "id": 6,
+          "proposer": "council-mandate-mw7zz0zl.testnet",
+          "description": "* Notes: {\"schema\":\"treasury-budget-payment/v1\",\"reference\":\"testnet/mandate-mw7zz0zl.sputnikv2.testnet/0\",\"requestId\":\"workshop\",\"purpose\":\"Run a welcome workshop\"}",
+          "kind": {
+            "Transfer": {
+              "token_id": "",
+              "receiver_id": "recipient-mandate-mw7zz0zl.testnet",
+              "amount": "150000000000000000000000",
+              "msg": null
+            }
+          },
+          "status": "Approved",
+          "vote_counts": {
+            "council": [1, 0, 0]
+          },
+          "votes": {
+            "council-mandate-mw7zz0zl.testnet": "Approve"
+          },
+          "submission_time": "1794152987010676724"
+        }
+      }
+    ],
+    "settlements": [
+      {
+        "requestId": "translate",
+        "proposalId": 5,
+        "transactionHash": "cBjk5HsePq1bx1gGaucfy57hFW15sk56s2VmTVb5qJs",
+        "signer": "council-mandate-mw7zz0zl.testnet",
+        "receipt": "BBXuzmLeyv2znKLULQD89iiXbTt25XYFg8VEYazoT4Jc",
+        "verified": true
+      },
+      {
+        "requestId": "workshop",
+        "proposalId": 6,
+        "transactionHash": "J7Kf8H5ZZMP2Ln8WMCHY6mq42yXunyyrJFyDnfAvBvmT",
+        "signer": "council-mandate-mw7zz0zl.testnet",
+        "receipt": "5FYCH8Fxi9yMk6XpPENpEr7eE4miXS3EXHPQ2YqvUJgb",
+        "verified": true
+      }
+    ]
+  },
+  "evidenceHash": "0c91fbab3b5adb1998b598e2d4e200d787686d0f16b922fba89a649fb46888c5"
+}
