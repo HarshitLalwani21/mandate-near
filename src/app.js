@@ -229,6 +229,8 @@ function renderRound() {
     result.requests.map((request) => [request.id, request.purpose]),
     ui("selectedRequest").value,
   );
+  const linkedRequest = new URL(location.href).searchParams.get("request");
+  if (!state.demo && result.requests.some(item => item.id === linkedRequest)) ui("selectedRequest").value = linkedRequest;
   selectPayment();
   ui("shareBudget").hidden = state.demo;
   ui("refreshBudget").hidden = state.demo;
@@ -274,6 +276,7 @@ function renderBallot() {
     }),
   );
   ui("retainVotes").value = String(record?.retain || 0);
+  resetWalletAction();
   ui("ballotArgs").hidden = true;
   ui("ballotHelp").textContent = state.demo
     ? "This changes the fictional example. Each person gets nine credits, including when delegating."
@@ -304,6 +307,7 @@ function previewBallot() {
   ui("retainField").hidden =
     delegated || usesRequestOpposition(state.review.budget);
   ui("retainValue").textContent = ui("retainVotes").value;
+  resetWalletAction();
   ui("ballotArgs").hidden = true;
   ui("ballotStatus").textContent = "";
   ui("creditCount").classList.remove("invalid");
@@ -393,6 +397,7 @@ function selectPayment() {
     : "Checked against the public mandate";
   checkPayment();
   renderTransfers();
+  showRequestHistory();
 }
 
 function checkPayment() {
@@ -717,6 +722,7 @@ ui("checkReceipt").onclick = async () => {
         receipt,
         verified: true,
       });
+    showRequestHistory();
     updateEvidence();
   } catch (error) {
     if (ticket === state.receiptTicket)
@@ -914,3 +920,6 @@ fetch("public/testnet-round.json")
     };
   })
   .catch(() => {});
+
+installReviewTools();
+

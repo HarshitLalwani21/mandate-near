@@ -376,7 +376,7 @@ async function inspectBudget(network, dao, id, pinnedBlock) {
           });
       }
       if (
-        description.schema === BUDGET_PAYMENT_SCHEMA &&
+        description?.schema === BUDGET_PAYMENT_SCHEMA &&
         proposal.kind?.Transfer
       )
         transfers.push({ proposal, requestId: description.requestId });
@@ -460,8 +460,9 @@ function matchBudgetPayment(review, entry) {
       request?.funded &&
       BigInt(entry.proposal.submission_time) >=
         BigInt(review.budget.round.closesNs) &&
-      description.schema === BUDGET_PAYMENT_SCHEMA &&
+      description?.schema === BUDGET_PAYMENT_SCHEMA &&
       description.reference === review.reference &&
+      description.requestId === request.id &&
       description.purpose === request.purpose &&
       transfer?.token_id === "" &&
       transfer.msg == null &&
@@ -507,3 +508,5 @@ function evidenceForBudget(review, settlements = []) {
       .sort((left, right) => left.proposalId - right.proposalId),
   };
 }
+
+

@@ -93,3 +93,9 @@ These are conceptual inspirations, not claims that their code or guarantees were
 ## Evaluation boundaries
 
 No first-place or top-three ranking is established. Test counts are not comparable measures of project quality. Independent users, a neutral issuer and a hosted Trezu workflow are still unproven. They need real participants and testing, not simulated accounts or extra features. Milestones, new tokens, an AI watchdog and a new multisig are outside this submission.
+
+## Review a single request
+
+[Open the translation payment history](https://harshitlalwani21.github.io/mandate-near/?capture=1&request=translate#requestHistory). Select proposal 14 to compare the staged 0.2 request with the authorized 0.1 payment. Proposal 15 matches. The history includes council status and the verified settlement transaction. In a live round, proposal ID lookup reads the filed DAO proposal directly, including proposals with missing Notes. Captured mode covers the saved referenced payments.
+
+In an open live round, select your own roster account and allocations, then connect your wallet. Mandate checks the connected account, the committed credential snapshot and the live DAO bond. Review the signer, network, contract and bond before opening the wallet to sign a single add_proposal call. Refresh the live round to verify inclusion. The closed public round remains team-run. The testnet demonstration uses Trezu-compatible Notes. Trezu's published wallet connector currently configures mainnet only.

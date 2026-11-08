@@ -124,7 +124,7 @@
             >
             <p id="ballotStatus" role="status"></p>
             <button id="submitBallot">Cast in the example</button>
-            <pre id="ballotArgs" hidden></pre>
+            <button id="walletConnect" hidden>Connect ballot wallet</button><button id="walletSign" hidden>Review declaration in wallet</button><p id="walletStatus" role="status"></p><pre id="ballotArgs" hidden></pre>
             <p class="hint" id="ballotHelp">
               This changes the fictional example. Each person gets nine credits,
               including when delegating.
@@ -185,7 +185,7 @@
           </button>
           <pre id="trezuFields" hidden></pre>
           <pre id="paymentArgs" hidden></pre>
-          <div id="existingTransfers"></div>
+          <div id="existingTransfers"></div><section id="requestHistory" hidden><h3>Payment history</h3><div id="historyRows"></div><a id="historyLink">Share this request</a><h3>Check a filed proposal</h3><label>Proposal ID in this DAO<input id="inspectId" inputmode="numeric" /></label><button id="inspectFiled">Compare with this request</button><pre id="filedReport" role="status"></pre></section>
         </section>
         <section class="panel" id="evidencePanel">
           <div class="panel-heading">
@@ -274,6 +274,7 @@
     <script src="src/core.js"></script>
     <script src="src/budget.js"></script>
     <script src="src/evidence.js"></script>
-    <script src="src/app.js"></script>
+    <script src="src/review-tools.js"></script><script src="src/app.js"></script>
   </body>
 </html>
+
