@@ -208,6 +208,32 @@ test('evidence hashes and replay URLs are reproducible and social drafts use Fas
   assert.equal(social.actions[0].params.args['post/123'].text, 'A verified stage');
 });
 
+test('evidence is stable when credential reads and receipt checks finish in another order', async () => {
+  const first = review();
+  const reordered = { ...first, proofs: [...first.proofs].reverse() };
+  const payments = [
+    {
+      requestId: 'a',
+      proposalId: 11,
+      transactionHash: 'a',
+      signer: 'council.testnet',
+      receipt: 'r1',
+      verified: true,
+    },
+    {
+      requestId: 'b',
+      proposalId: 12,
+      transactionHash: 'b',
+      signer: 'council.testnet',
+      receipt: 'r2',
+      verified: true,
+    },
+  ];
+  const a = engine.evidenceForBudget(first, payments);
+  const b = engine.evidenceForBudget(reordered, [...payments].reverse());
+  assert.equal(await engine.fingerprintEvidence(a), await engine.fingerprintEvidence(b));
+});
+
 test('pinned live reader excludes late votes and refuses a missing history page', async () => {
   const block = '5'.repeat(44),
     identity = budget.round.identityBlock;

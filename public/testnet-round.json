@@ -271,11 +271,45 @@
       ]
     },
     "closed": true,
-    "declarationProposals": [1, 2, 3],
+    "declarationProposals": [
+      1,
+      2,
+      3
+    ],
     "credentials": [
-      ["ben-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [2]]]],
-      ["alice-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [1]]]],
-      ["cara-mandate-mw7zz0zl.testnet", [["council-mandate-mw7zz0zl.testnet", [3]]]]
+      [
+        "alice-mandate-mw7zz0zl.testnet",
+        [
+          [
+            "council-mandate-mw7zz0zl.testnet",
+            [
+              1
+            ]
+          ]
+        ]
+      ],
+      [
+        "ben-mandate-mw7zz0zl.testnet",
+        [
+          [
+            "council-mandate-mw7zz0zl.testnet",
+            [
+              2
+            ]
+          ]
+        ]
+      ],
+      [
+        "cara-mandate-mw7zz0zl.testnet",
+        [
+          [
+            "council-mandate-mw7zz0zl.testnet",
+            [
+              3
+            ]
+          ]
+        ]
+      ]
     ],
     "transfers": [
       {
@@ -297,7 +331,11 @@
           },
           "status": "Rejected",
           "vote_counts": {
-            "council": [0, 1, 0]
+            "council": [
+              0,
+              1,
+              0
+            ]
           },
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Reject"
@@ -324,7 +362,11 @@
           },
           "status": "Approved",
           "vote_counts": {
-            "council": [1, 0, 0]
+            "council": [
+              1,
+              0,
+              0
+            ]
           },
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Approve"
@@ -351,7 +393,11 @@
           },
           "status": "Approved",
           "vote_counts": {
-            "council": [1, 0, 0]
+            "council": [
+              1,
+              0,
+              0
+            ]
           },
           "votes": {
             "council-mandate-mw7zz0zl.testnet": "Approve"
@@ -379,5 +425,5 @@
       }
     ]
   },
-  "evidenceHash": "0c91fbab3b5adb1998b598e2d4e200d787686d0f16b922fba89a649fb46888c5"
+  "evidenceHash": "21c5fc9e1c5cbb6ae7de93bf987c9bc9ef1528db18ea6ff21c97399124f5f0dc"
 }

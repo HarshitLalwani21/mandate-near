@@ -364,7 +364,9 @@ function evidenceForBudget(review, settlements = []) {
     result: review.result,
     closed: review.closed,
     declarationProposals: review.ballots.map((ballot) => ballot.proposalId),
-    credentials: review.proofs,
+    credentials: [...review.proofs].sort(([left], [right]) =>
+      left < right ? -1 : left > right ? 1 : 0,
+    ),
     transfers: review.transfers.map((entry) => ({
       id: entry.proposal.id,
       requestId: entry.requestId,
@@ -372,6 +374,15 @@ function evidenceForBudget(review, settlements = []) {
       matches: matchBudgetPayment(review, entry),
       proposal: entry.proposal,
     })),
-    settlements,
+    settlements: settlements
+      .map((payment) => ({
+        requestId: payment.requestId,
+        proposalId: payment.proposalId,
+        transactionHash: payment.transactionHash,
+        signer: payment.signer,
+        receipt: payment.receipt,
+        verified: payment.verified === true,
+      }))
+      .sort((left, right) => left.proposalId - right.proposalId),
   };
 }
